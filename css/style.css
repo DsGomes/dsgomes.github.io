@@ -1,3 +1,9 @@
+/* .color1 { #e4a691 };
+.color2 { #f7efd8 };
+.color3 { #c8c8a9 };
+.color4 { #556270 };
+.color5 { #273142 }; */
+
 body {
     margin: 0 auto;
     color: rgb(243, 244, 246);
@@ -44,7 +50,7 @@ ul {
     padding: 15px 0px 0px 20px;
     width: 50%;
     flex-direction: column;
-    opacity: 40%;
+    opacity: 70%;
 }
 
 .contact-bar .text-bold {
@@ -66,14 +72,19 @@ ul {
 .stacks-elements {
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    gap: 30px;
     margin-left: 15px;
+    padding-bottom: 10px;
 }
 
 .section-container {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 90%;
+}
+
+section p {
+    width: 70%;
 }
 
 /* divs */
@@ -83,6 +94,7 @@ header {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    padding-top: 10px;
 }
 
 section {
@@ -93,6 +105,11 @@ section {
     margin-bottom: 15px;
 }
 
-section p {
-    width: 70%;
+footer {
+    display: flex;
+    justify-content: center;
+}
+
+footer div img {
+    height: 15px;
 }
