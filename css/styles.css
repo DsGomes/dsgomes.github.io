@@ -58,18 +58,13 @@ body {
   }
   
   section {
-    padding: 20px;
+    padding: 15px 15px 15px 150px;
     background-color: var(--cor-secundaria);
     border: 1px solid #e9ebee;
-    margin: 30px;
   }
   
   h1 {
     font-size: 24px;
-  }
-  
-  .project {
-    margin-bottom: 20px;
   }
   
   footer {
@@ -112,66 +107,27 @@ body {
   .logos img {
     width: 50px;
     height: 50px;
-    margin: 5px;
-  }
-
-  .stack .logos img {
-    width: 100%;
-    height: auto;
-  }
-
-  /* Contato */
-
-  .contato-links {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  
-  .contato-link {
-    margin: 0 10px;
-    position: relative;
-    display: inline-block;
-  }
-  
-  .contato-link img {
-    width: 50px;
-    height: 50px;
+    margin: 10px;
     transition: transform 0.3s;
   }
-  
-  .contato-link:hover img {
-    transform: scale(1.2);
-  }
-  
-  .contato-link::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
 
-  .contato-link:hover::after {
-    opacity: 1;
+  .logos img:hover {
+    transform: scale(1.3);
   }
-
-
 
   /* sobre */
 
   #sobre {
     position: relative;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
   }
   
   .sobre-content {
     position: relative;
-    z-index: 2;
-    padding: 100px;
+    z-index: 1;
     text-align: center;
   }
 
@@ -184,10 +140,20 @@ body {
     background-image: url('../img/background-programmer.jpg');
     background-size: cover;
     background-position: center;
-    opacity: 0.3;
-    z-index: 1;
+    opacity: 0.1;
+    z-index: 0;
+  }
+
+  .sobre-content ul {
+    list-style-type: square;
+    padding: 5px;
+    margin: 0;
   }
   
+  .sobre-content li {
+    margin-bottom: 15px;
+  }
+
   h2 {
     font-size: 32px;
     font-weight: bold;
@@ -198,19 +164,61 @@ body {
     font-size: 18px;
     margin-bottom: 30px;
   }
+
+    /* Contato */
+
+    .contact {
+      flex: 1;
+      padding: 30px;
+      background-color: rgba(255, 255, 255, 0.4);
+      box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+      transform: translateY(-20px);
+      transition: transform 0.3s;
+      max-width: 400px;
+      max-height: fit-content;
+      margin: 0 auto;
+      margin-top: 20px;
+    }
   
-  .cta-button {
-    display: inline-block;
-    padding: 15px 30px;
-    font-size: 20px;
-    font-weight: bold;
-    text-decoration: none;
-    background-color: #ff9900;
-    color: #ffffff;
-    border-radius: 30px;
-    transition: background-color 0.3s;
-  }
+    @media screen and (max-width: 768px) {
+      .contact {
+        max-width: 100%; /* Para dispositivos menores, ocupar toda a largura disponível */
+      }
+    }
+
+    .contato-links {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    
+    .contato-link {
+      margin: 0 10px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .contato-link img {
+      width: 50px;
+      height: 50px;
+      transition: transform 0.3s;
+    }
+    
+    .contato-link:hover img {
+      transform: scale(1.2);
+    }
+    
+    .contato-link::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
   
-  .cta-button:hover {
-    background-color: #ff6600;
-  }
+    .contato-link:hover::after {
+      opacity: 1;
+    }
