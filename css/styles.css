@@ -124,19 +124,10 @@ body {
     justify-content: center;
     flex-direction: row;
   }
-
-  @media screen and (max-width: 768px) {
-    #sobre {
-      display: flex;
-      flex-direction: column;
-      padding: 0;
-    }
-  }
   
   .sobre-content {
     position: relative;
     z-index: 1;
-    text-align: center;
   }
 
   .imagem {
@@ -155,11 +146,29 @@ body {
   .sobre-content ul {
     list-style-type: none;
     padding: 5px;
-    margin: 0;
+    text-align: center;
   }
   
   .sobre-content li {
     margin-bottom: 15px;
+    text-align: left;
+  }
+
+  .sobre-content li img {
+    width: 20px;
+    height: 20px;
+  }
+
+  @media screen and (max-width: 768px) {
+    #sobre {
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+    }
+
+    .sobre-content li {
+      text-align: center;
+    }
   }
 
   h2 {
