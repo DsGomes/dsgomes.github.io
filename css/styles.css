@@ -1,241 +1,126 @@
-:root {
-    --cor-primaria: #3b5998;
-    --cor-secundaria: #e9ebee;
-    --cor-destaque: #ff9900;
-    --cor-texto: #333333;
-    --cor-fundo: #ffffff;
-  }
-
-/* Site */
-
 body {
-    font-family: 'Roboto', Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: var(--cor-fundo);
-    color: var(--cor-texto);
-  }
-  
-  header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: var(--cor-primaria);
-    padding: 10px;
-  }
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
 
-  .logo img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    margin-left: 10px;
-  }
-  
-  nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-  }
-  
-  nav ul li {
-    margin-right: 10px;
-  }
-  
-  nav ul li a {
-    color: var(--cor-fundo);
-    text-decoration: none;
-    font-size: 19px;
-    transition: color 0.3s;
-  }
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+}
 
-  nav ul li a:hover {
-    color: #ff9900;
-  }
-  
-  nav {
-    margin-left: auto;
-  }
-  
-  section {
-    padding: 15px 15px 15px 150px;
-    background-color: var(--cor-secundaria);
-    border: 1px solid #e9ebee;
-  }
-  
-  h1 {
-    font-size: 24px;
-  }
-  
-  footer {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .button {
-    background-color: var(--cor-primaria);
-    color: var(--cor-texto);
-  }
-  
-  a {
-    color: var(--cor-destaque);
-  }
+article {
+  margin-bottom: 40px;
+}
 
+h2 {
+  font-size: 30px;
+  color: #222;
+}
 
+.white-header {
+  background-color: white;
+  color: #333;
+  padding: 20px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Alinha verticalmente */
+}
 
-/* stack */
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 
-#tecnologias {
-    padding: 20px;
-  }
-  
-  .tecnologias-group {
-    margin-bottom: 10px;
-  }
-  
-  h2, h3 {
-    text-align: center;
-  }
-  
-  .logos {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .logos img {
-    width: 50px;
-    height: 50px;
-    margin: 10px;
-    transition: transform 0.3s;
-  }
+.menu-btn {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 24px;
+  cursor: pointer;
+  margin-left: auto; /* Alinha à direita */
+}
 
-  .logos img:hover {
-    transform: scale(1.3);
-  }
+nav ul {
+  list-style-type: none;
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 40px; /* Ajuste a distância vertical aqui */
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 2; /* Coloque o menu sobre o restante do conteúdo */
+}
 
-  /* sobre */
+nav.show ul {
+  display: flex;
+}
 
-  #sobre {
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-  }
-  
-  .sobre-content {
-    position: relative;
-    z-index: 1;
-  }
+nav ul li {
+  margin: 5px 0;
+}
 
-  .imagem {
-    position: absolute;
-    top: 0;
-    right: -200px;
-    bottom: 0;
-    left: -200px;
-    background-image: url('../img/background-programmer.jpg');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.1;
-    z-index: 0;
-  }
+.background-image { /* Substitua pelo caminho da sua imagem de fundo */
+  background-size: cover;
+  background-position: center;
+  color: #444;
+  padding: 40px; /* Adicione o padding desejado */
+  text-align: center; /* Centraliza o conteúdo horizontalmente */
+}
 
-  .sobre-content ul {
-    list-style-type: none;
-    padding: 5px;
-    text-align: center;
-  }
-  
-  .sobre-content li {
-    margin-bottom: 15px;
-    text-align: left;
-  }
+.background-image article {
+  margin-bottom: 40px;
+}
 
-  .sobre-content li img {
-    width: 20px;
-    height: 20px;
-  }
+.background-image h2 {
+  font-size: 30px;
+  color: #222;
+}
 
-  @media screen and (max-width: 768px) {
-    #sobre {
-      display: flex;
-      flex-direction: column;
-      padding: 0;
-    }
+.pagination button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+  margin: 0 10px;
+}
 
-    .sobre-content li {
-      text-align: center;
-    }
-  }
+.white-footer {
+  background-color: white;
+  color: #555;
+  padding: 50px;
+  display: flex;
+  flex-direction: column; /* Altera a direção para vertical */
+  align-items: center; /* Centraliza horizontalmente */
+  font-size: 20px;
+}
 
-  h2 {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-  p {
-    font-size: 18px;
-    margin-bottom: 30px;
-  }
+/* Estilização para o conteúdo da classe .footer-left */
+.footer-left {
+  text-align: center; /* Centraliza o texto */
+}
 
-    /* Contato */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
 
-    .contact {
-      flex: 1;
-      padding: 30px;
-      background-color: rgba(255, 255, 255, 0.4);
-      box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
-      transform: translateY(-20px);
-      transition: transform 0.3s;
-      max-width: 400px;
-      max-height: fit-content;
-      margin: 0 auto;
-      margin-top: 20px;
-    }
-  
-    @media screen and (max-width: 768px) {
-      .contact {
-        max-width: 100%; /* Para dispositivos menores, ocupar toda a largura disponível */
-      }
-    }
+.footer-left a {
+  margin-right: 15px; /* Ajuste a margem para controlar a distância */
+  color: #999; /* Cor cinza para os ícones */
+  font-size: 24px;
+  transition: color 0.3s; /* Adiciona uma transição suave para a mudança de cor */
+}
 
-    .contato-links {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-    }
-    
-    .contato-link {
-      margin: 0 10px;
-      position: relative;
-      display: inline-block;
-    }
-    
-    .contato-link img {
-      width: 50px;
-      height: 50px;
-      transition: transform 0.3s;
-    }
-    
-    .contato-link:hover img {
-      transform: scale(1.2);
-    }
-    
-    .contato-link::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-  
-    .contato-link:hover::after {
-      opacity: 1;
-    }
+.footer-left a:hover {
+  color: #007bff; /* Cor azul ao passar o mouse */
+}
