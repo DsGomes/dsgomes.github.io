@@ -73,10 +73,46 @@ nav ul li {
   color: #444;
   padding: 40px; /* Adicione o padding desejado */
   text-align: center; /* Centraliza o conteúdo horizontalmente */
+  --article-counter: 0;
+  counter-reset: article-counter var(--article-counter);
 }
 
 .background-image article {
-  margin-bottom: 40px;
+  background-color: white;
+  padding: 10px; /* Espaçamento interno reduzido */
+  border-radius: 10px; /* Adiciona bordas arredondadas */
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1); /* Adiciona sombra */
+  display: flex; /* Para alinhar os números e o conteúdo horizontalmente */
+  align-items: center; /* Alinha verticalmente */
+  max-width: 70%; /* Largura máxima definida */
+  margin: 0 auto; /* Centraliza horizontalmente */
+  margin-bottom: 20px; /* Espaçamento inferior reduzido */
+  position: relative;
+}
+
+/* Adiciona espaçamento vertical entre os cards */
+.background-image article + article {
+  margin-top: 20px;
+}
+
+/* Estilização para os números sequenciais */
+.background-image article::before {
+  content: counter(article-counter); /* Usa o valor do contador */
+  counter-increment: article-counter; /* Incrementa o contador */
+  width: 40px; /* Largura aumentada */
+  height: 40px; /* Altura aumentada */
+  background-color: #007bff; /* Cor do círculo */
+  color: white;
+  border-radius: 50%; /* Para criar um círculo */
+  font-size: 20px; /* Tamanho da fonte aumentado */
+  font-weight: bold;
+  display: flex;
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+  position: absolute;
+  left: -55px; /* Posiciona os números à esquerda fora dos cards */
+  top: 50%; /* Centraliza verticalmente */
+  transform: translateY(-50%); /* Centraliza verticalmente */
 }
 
 .background-image h2 {
