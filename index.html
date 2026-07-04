@@ -1,100 +1,459 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <title>Desenvolvimento de software, tecnologia e afins</title>
+  <title>Diego Gomes | Senior Software Engineer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================
+       RESET & VARIÁVEIS GLOBAIS
+       ========================================== */
+    :root {
+      --bg-principal: #0b0f19;
+      --bg-card: #131a26;
+      --cor-texto: #f3f4f6;
+      --cor-mutada: #9ca3af;
+      --cor-accent: #3b82f6; /* Azul moderno */
+      --cor-accent-hover: #60a5fa;
+      --borda: rgba(255, 255, 255, 0.08);
+      --font-sans: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-principal);
+      color: var(--cor-texto);
+      font-family: var(--font-sans);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    /* ==========================================
+       CONTAINER & ESTRUTURA
+       ========================================== */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    section {
+      padding: 6rem 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 3rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 40px;
+      height: 3px;
+      background-color: var(--cor-accent);
+      border-radius: 2px;
+    }
+
+    /* ==========================================
+       HEADER / NAVBAR
+       ========================================== */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(11, 15, 25, 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--borda);
+      z-index: 1000;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+
+    .logo {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--cor-accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--cor-accent);
+    }
+
+    /* ==========================================
+       HERO SECTION (SOBRE MIM + FOTO)
+       ========================================== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-text .greeting {
+      font-family: var(--font-mono);
+      color: var(--cor-accent);
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .hero-text h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-text p {
+      color: var(--cor-mutada);
+      font-size: 1.15rem;
+      max-width: 540px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Espaço para a Foto */
+    .hero-image {
+      position: relative;
+      justify-self: center;
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      width: 280px;
+      height: 280px;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 2px solid var(--cor-accent);
+      background-color: var(--bg-card);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .avatar-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .avatar-wrapper:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Decorative background shape */
+    .hero-image::before {
+      content: '';
+      position: absolute;
+      top: 15px;
+      right: -15px;
+      width: 100%;
+      height: 100%;
+      border: 2px solid rgba(59, 130, 246, 0.2);
+      border-radius: 20px;
+      z-index: -1;
+      transition: all 0.3s ease;
+    }
+
+    .hero-image:hover::before {
+      top: 10px;
+      right: -10px;
+    }
+
+    /* ==========================================
+       COMPETÊNCIAS & ARQUITETURA
+       ========================================== */
+    .competencias-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .comp-card {
+      background-color: var(--bg-card);
+      padding: 2.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--borda);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .comp-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(59, 130, 246, 0.3);
+    }
+
+    .comp-card i {
+      font-size: 2rem;
+      color: var(--cor-accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .comp-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .comp-card p {
+      color: var(--cor-mutada);
+      font-size: 0.95rem;
+    }
+
+    /* ==========================================
+       TECNOLOGIAS (STACK)
+       ========================================== */
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .tech-item {
+      background-color: var(--bg-card);
+      border: 1px solid var(--borda);
+      padding: 1.5rem 1rem;
+      border-radius: 8px;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      cursor: default;
+    }
+
+    .tech-item:hover {
+      background-color: rgba(59, 130, 246, 0.05);
+      border-color: var(--cor-accent);
+      color: var(--cor-accent);
+      transform: scale(1.02);
+    }
+
+    /* ==========================================
+       FOOTER REESTILIZADO (WHITE-FOOTER ADAPTADO)
+       ========================================== */
+    .white-footer {
+      background-color: #ffffff;
+      color: #0b0f19;
+      padding: 4rem 0;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .footer-left h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-left p {
+      color: #4b5563;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+    }
+
+    .footer-left a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-color: #f3f4f6;
+      color: #0b0f19;
+      margin-right: 0.75rem;
+      font-size: 1.2rem;
+    }
+
+    .footer-left a:hover {
+      background-color: var(--cor-accent);
+      color: #ffffff;
+      transform: translateY(-3px);
+    }
+
+    .footer-right {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+
+    /* ==========================================
+       RESPONSIVIDADE (MEDIA QUERIES)
+       ========================================== */
+    @media (max-width: 968px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+      }
+      .hero-text p {
+        margin: 0 auto 2.5rem auto;
+      }
+      .hero-image {
+        order: -1; /* Foto aparece primeiro no mobile */
+      }
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      .footer-left a {
+        margin: 0 0.375rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-text h1 {
+        font-size: 2.5rem;
+      }
+      .avatar-wrapper {
+        width: 220px;
+        height: 220px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header class="white-header">
-        <div class="logo">Diego Gomes</div>
-        <button class="menu-btn"><i class="fas fa-bars"></i></button>
-        <nav>
-            <ul>
-              <li><a href="https://github.com/DsGomes">GitHub</a></li>
-              <li><a href="https://www.linkedin.com/in/diegogomes/">LinkedIn</a></li>
-            </ul>
-        </nav>
-    </header>
 
-  <main class="background-image">
-    <article>
-      <h2>Título do Artigo 1</h2>
-      <p>Conteúdo do artigo...</p>
-    </article>
+  <header>
+    <div class="container nav-container">
+      <div class="logo">&lt;DG /&gt;</div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#competencias">Competências</a></li>
+          <li><a href="#tecnologias">Tecnologias</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <article>
-      <h2>Título do Artigo 2</h2>
-      <p>Conteúdo do artigo...</p>
-    </article>
-
-    <article>
-        <h2>Título do Artigo 3</h2>
-        <p>Conteúdo do artigo...</p>
-      </article>
-  
-      <article>
-        <h2>Título do Artigo 4</h2>
-        <p>Conteúdo do artigo...</p>
-      </article>
-
-      <article>
-        <h2>Título do Artigo 5</h2>
-        <p>Conteúdo do artigo...</p>
-      </article>
-  
-      <article>
-        <h2>Título do Artigo 6</h2>
-        <p>Conteúdo do artigo...</p>
-      </article>
-
-      <article>
-        <h2>Título do Artigo 7</h2>
-        <p>Conteúdo do artigo...</p>
-      </article>
-  
-      <article>
-        <h2>Título do Artigo 8</h2>
-        <p>Conteúdo do artigo...</p>
-      </article>
-
-      <article>
-        <h2>Título do Artigo 9</h2>
-        <p>Conteúdo do artigo...</p>
-      </article>
-  
-      <article>
-        <h2>Título do Artigo 10</h2>
-        <p>Conteúdo do artigo...</p>
-      </article>
-
-      <article>
-        <h2>Título do Artigo 11</h2>
-        <p>Conteúdo do artigo...</p>
-      </article>
-  
-      <article>
-        <h2>Título do Artigo 12</h2>
-        <p>Conteúdo do artigo...</p>
-      </article>
-
-    <div class="pagination">
-        <button class="prev-btn">Anterior</button>
-        <button class="next-btn">Próximo</button>
+  <section id="sobre" class="hero container">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <span class="greeting">Olá, meu nome é</span>
+        <h1>Diego Gomes.</h1>
+        <p>Sou um engenheiro de software focado na construção de sistemas distribuídos de alta performance, escalabilidade e arquiteturas limpas.</p>
       </div>
-  </main>
+      
+      <div class="hero-image">
+        <div class="avatar-wrapper">
+          <img src="./img/perfil.png" alt="Diego Gomes Profile">
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <footer class="white-footer">
-    <div class="footer-left">
-      <h3>Sobre mim</h3>
-      <p>Sou um desenvolvedor de software apaixonado por tecnologia!</p>
-      <a target="_blank" href="https://github.com/DsGomes"><i class="fab fa-github"></i></a>
-      <a target="_blank" href="https://www.linkedin.com/in/diegogomes/"><i class="fab fa-linkedin"></i></a>
-      <a target="_blank" href="mailto:diegomes.dev@gmail.com"><i class="far fa-envelope"></i></a>
+  <section id="competencias" class="container">
+    <h2 class="section-title">Competências de Engenharia</h2>
+    <div class="competencias-grid">
+      
+      <div class="comp-card">
+        <i class="fa-solid fa-layer-group"></i>
+        <h3>Arquitetura de Software</h3>
+        <p>Desenvolvimento focado em desacoplamento e manutenibilidade utilizando padrões como Hexagonal Architecture, Clean Architecture e Domain-Driven Design (DDD).</p>
+      </div>
+
+      <div class="comp-card">
+        <i class="fa-solid fa-server"></i>
+        <h3>Sistemas Distribuídos</h3>
+        <p>Desenho de ecossistemas escaláveis e resilientes com microsserviços, mensageria orientada a eventos e estratégias eficientes de cache.</p>
+      </div>
+
+      <div class="comp-card">
+        <i class="fa-solid fa-cubes"></i>
+        <h3>SaaS & Multi-tenancy</h3>
+        <p>Modelagem e implementação de plataformas de software como serviço prontas para isolamento seguro de dados e alta disponibilidade de módulos core.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="tecnologias" class="container">
+    <h2 class="section-title">Tech Stack Principal</h2>
+    <div class="tech-grid">
+      <div class="tech-item">Node.js</div>
+      <div class="tech-item">TypeScript</div>
+      <div class="tech-item">.NET Core</div>
+      <div class="tech-item">C#</div>
+      <div class="tech-item">AWS</div>
+      <div class="tech-item">Docker</div>
+      <div class="tech-item">PostgreSQL</div>
+      <div class="tech-item">Redis</div>
+    </div>
+  </section>
+
+  <footer id="contato" class="white-footer">
+    <div class="container footer-content">
+      <div class="footer-left">
+        <h3>Sobre mim</h3>
+        <p>Sou um desenvolvedor de software apaixonado por tecnologia!</p>
+        <a target="_blank" href="https://github.com/DsGomes"><i class="fab fa-github"></i></a>
+        <a target="_blank" href="https://www.linkedin.com/in/diegogomes/"><i class="fab fa-linkedin"></i></a>
+        <a target="_blank" href="mailto:diegomes.dev@gmail.com"><i class="far fa-envelope"></i></a>
+      </div>
+      <div class="footer-right">
+        <p>&copy; 2026 Diego Gomes. Built for Performance.</p>
+      </div>
     </div>
   </footer>
-  <script src="./js/script.js"></script>
+
+  <script>
+    // Suavização do Header ao scrollar
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.style.boxShadow = '0 10px 30px -10px rgba(2,12,27,0.7)';
+      } else {
+        header.style.boxShadow = 'none';
+      }
+    });
+  </script>
 </body>
 </html>
